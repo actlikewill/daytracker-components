@@ -1,4 +1,4 @@
-import { blue, text } from './colors';
+import { blue, text, neutral } from './colors';
 import { primaryFont, defaultTypeScale } from './typography';
 
 const defaultTheme = {
@@ -9,6 +9,7 @@ const defaultTheme = {
     textColorInverted: text['inverted'],    
     typeScale: defaultTypeScale,
     primaryFont,
+    neutral,
 }
 
 export const theme = defaultTheme; 

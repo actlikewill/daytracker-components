@@ -1,6 +1,31 @@
 import styled from 'styled-components';
 import { theme } from '../utils';
+import { applyStyleModifiers } from 'styled-components-modifiers';
 
+
+const BUTTON_MODIFIERS = {
+    small: () => (`
+        font-size: ${theme.typeScale.fs_small};
+        padding: .4rem 1rem;
+    `),
+    large: () => (`
+        font-size: ${theme.typeScale.fs_2};
+        padding: 1rem 2rem;
+    `),
+    disabled: () => (`
+        background-color: ${theme.neutral['300']};
+        border-color: ${theme.neutral['300']};
+        cursor: not-allowed;
+
+        &:hover, &:active, &:focus {
+        background-color: ${theme.neutral['300']};
+        border-color: ${theme.neutral['300']};
+        cursor: not-allowed;
+        box-shadow: none;
+        }
+
+    `)
+}
 
 const BaseButton = styled.button`
     font-size:1rem;
@@ -82,7 +107,9 @@ const Button = styled(BaseButton)`
             props.secondary ? `${theme.primaryColor}` :
             props.tertiary ? `${theme.textColorInverted}` :
             `${theme.textColorInverted}`
-    }
+    } ;
+
+    ${applyStyleModifiers(BUTTON_MODIFIERS)};
 `;
 
 export default Button;
